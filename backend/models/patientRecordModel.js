@@ -1,25 +1,27 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema(
+const patientRecord = mongoose.Schema(
   {
-    name: {
-        type: String,
-        required: [true, 'Please add a name'],
-    },
-    email: {
-        type: String,
-        required: [true, 'Please add an email'],
-        unique: true,
-    },
-    password: {
-        type: String,
-        required: [true, 'Please add a password'],
-    },
-    role: {
+    patient_id: {
       type: String,
-      enum: ['super_admin', 'physicians_assistants', 'nurses','patient'],
-      default: 'patient',
-      required: [true, 'Please add a role'],
+      required: [true, "Please add a user_id"],
+    },
+    doc_id: {
+      type: String,
+      required: [true, "Please add a user_id"],
+    },
+    prescriptions: {
+      type: String,
+      required: [true, "Please add a prescriptions"],
+      unique: true,
+    },
+    treatment_plans: {
+      type: String,
+      required: [true, "Please add a treatment plans"],
+    },
+    progress_notes: {
+      type: String,
+      required: [true, "Please add a progress notes"],
     },
   },
   {
@@ -27,4 +29,4 @@ const userSchema = mongoose.Schema(
   }
 )
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('PatientRecord', patientRecord)
