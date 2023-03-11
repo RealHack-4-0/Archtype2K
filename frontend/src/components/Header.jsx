@@ -14,6 +14,7 @@ function Header() {
     dispatch(logout())
     dispatch(reset())
     navigate('/')
+    window.location.reload()
   }
 
   return (
