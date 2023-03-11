@@ -29,11 +29,11 @@ const patientHeaderItems = [
 
 const adminHeaderItems = [
     {
-        name: 'Home',
+        name: 'Dashboard',
         path: '/admin',
     },
     {
-        name: 'Create Account',
+        name: 'Add Health Professionals',
         path: '/admin/create-account',
     },
     {
