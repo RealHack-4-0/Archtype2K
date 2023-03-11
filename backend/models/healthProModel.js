@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const patientRecordSchema = mongoose.Schema(
+const healthProRecordSchema = mongoose.Schema(
   {
     name: {
         type: String,
@@ -31,4 +31,4 @@ const patientRecordSchema = mongoose.Schema(
   }
 )
 
-module.exports = mongoose.model('patientRecord', patientRecordSchema)
+module.exports = mongoose.model('healthPro', healthProRecordSchema)
