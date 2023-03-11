@@ -11,8 +11,8 @@ const { protect ,  patientProtect , healthProProtect , superAdminProtect} = requ
 
 
 router.post('/',protect , createPatientRecord)
-router.post('/patient',protect , patientProtect ,viewPatientRecordPatient)
-router.post('/doc',protect ,healthProProtect ,  viewPatientRecordDoctor)
+router.get('/',protect , patientProtect ,viewPatientRecordPatient)
+router.get('/doc',protect ,healthProProtect ,  viewPatientRecordDoctor)
 
 
 module.exports = router
