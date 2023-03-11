@@ -22,7 +22,7 @@ const createPatientRecord = asyncHandler(async (req, res) => {
   }
 });
 
-const viewPatientRecord = asyncHandler(async (req, res) => {
+const viewPatientRecordPatient = asyncHandler(async (req, res) => {
   const { patient_id, doc_id } = req.body;
 
   // Check for user email
@@ -37,7 +37,23 @@ const viewPatientRecord = asyncHandler(async (req, res) => {
   }
 });
 
+const viewPatientRecordDoctor = asyncHandler(async (req, res) => {
+  const { doc_id } = req.body;
+
+  // Check for user email
+  const patientRecord = await PatientRecord.findOne({  doc_id });
+
+  if (patientRecord) {
+    res.json(patientRecord);
+  }
+  else {
+    res.status(400);
+    throw new Error("Invalid user data");
+  }
+});
+
 module.exports = {
   createPatientRecord,
-  viewPatientRecord
+  viewPatientRecordPatient,
+  viewPatientRecordDoctor
 };
