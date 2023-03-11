@@ -1,0 +1,23 @@
+{
+  "name": "archtype2k",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start1\" \"npm run start2\"",
+    "startfront" : "concurrently \"cd frontend && npm start\" \"echo frontend running\" ",
+    "startback" : "concurrently \"cd backend && npm run server\" \"echo backend running\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RealHack-4-0/Archtype2K.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RealHack-4-0/Archtype2K/issues"
+  },
+  "homepage": "https://github.com/RealHack-4-0/Archtype2K#readme"
+}
