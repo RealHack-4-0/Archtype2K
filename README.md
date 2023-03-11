@@ -1,6 +1,6 @@
 # Archtype2K
 
-From the Root run the below commands 
+From the Root run the below commands </br> 
 `...Archtype2K> cd .\backend\` </br>
 `...Archtype2K\backend> npm install` </br>
 `...Archtype2K\backend> cd ..` </br>

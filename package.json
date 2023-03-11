@@ -22,11 +22,6 @@
   },
   "homepage": "https://github.com/RealHack-4-0/Archtype2K#readme",
   "dependencies": {
-<<<<<<< HEAD
     "concurrently": "^7.6.0"
-=======
-    "concurrently": "^7.6.0",
-    "yup": "^1.0.2"
->>>>>>> 8d4786ff3d6cc3eae890346c06b2f2714d9155ac
   }
 }
