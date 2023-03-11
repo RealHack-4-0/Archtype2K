@@ -23,10 +23,10 @@ const createPatientRecord = asyncHandler(async (req, res) => {
 });
 
 const viewPatientRecordPatient = asyncHandler(async (req, res) => {
-  const { patient_id, doc_id } = req.body;
+  const { patient_id } = req.body;
 
   // Check for user email
-  const patientRecord = await PatientRecord.findOne({ patient_id, doc_id });
+  const patientRecord = await PatientRecord.findOne({ patient_id });
 
   if (patientRecord) {
     res.json(patientRecord);

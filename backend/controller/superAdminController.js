@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 const healthPro = require("../models/healthProModel");
 
 const addHealthPro = asyncHandler(async (req, res) => {
-  console.log("'rrrr");
+
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
@@ -107,11 +107,13 @@ const deleteHealthPro = asyncHandler(async (req, res) => {
 });
 
 const loginHealthPro = asyncHandler(async (req, res) => {
-    const { email, password } = req.body
 
+
+    const { email, password } = req.body
+ 
   // Check for user email
   const user = await healthPro.findOne({ email })
-  
+
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
       _id: user.id,
