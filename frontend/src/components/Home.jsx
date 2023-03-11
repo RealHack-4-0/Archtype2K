@@ -15,7 +15,7 @@ function Home() {
 
   const renderPortals = (param) => {
     switch (param) {
-      case 'admin':
+      case 'super_admin':
         return <AdminRoutes />;
       case 'patient':
         return <PatientRoutes />;
@@ -28,7 +28,6 @@ function Home() {
 
   return (
     <>
-      <br />
       {/* {user ? (<>    <div><pre> user id    - {user._id}</pre> </div>
         <div><pre> user name  - {user.name}</pre></div>
         <div><pre> user email - {user.email}</pre></div>
