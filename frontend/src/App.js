@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import PatientRoutes from './components/portals/PatientPortal';
 import AdminRoutes from './components/portals/AdminPortal';
+import DoctorRoutes from './components/portals/DoctorPortal';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/patient/*' element={<PatientRoutes />}  />
             <Route path='/admin/*' element={<AdminRoutes />}  />
+            <Route path='/doctor/*' element={<DoctorRoutes />}  />
           </Routes>
       </div>
     </Router>

@@ -1,17 +1,20 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import CommonHeader from '../Common/CommonHeader';
+import AdminDashboard from './Components/AdminDashboard';
+import AddHealthProfessionals from './Components/AddHealthProfessionals';
+import ViewDoctors from './Components/ViewDoctors';
+import ViewPatients from './Components/ViewPatients';
 
 const AdminRoutes = () => {
     return (
         <div>
             <CommonHeader />
-            <h1>Admin route</h1>
             <Routes>
-                <Route path="" element={<div>Dashboard</div>} />
-                <Route path="create-account" element={<div>Create Account</div>} />
-                <Route path="view-doctors" element={<div>View Doctors</div>} />
-                <Route path="view-patient" element={<div>View Patients</div>} />
+                <Route path="" element={<AdminDashboard/>} />
+                <Route path="create-account" element={<AddHealthProfessionals/>} />
+                <Route path="view-doctors" element={<ViewDoctors/>} />
+                <Route path="view-patients" element={<ViewPatients/>} />
             </Routes>
         </div>
     )
