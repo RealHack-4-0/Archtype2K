@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import CommonHeader from '../Common/CommonHeader';
-import Home from './Components/Home';
+import Home from './Components/PatientHome';
 import Appointments from './Components/Appointments';
 import MakeAppointment from './Components/MakeAppointment';
 import MyReports from './Components/MyReports';
