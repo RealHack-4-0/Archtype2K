@@ -1,7 +1,4 @@
 const express = require('express')
-const multer = require("multer")
-const path = require('path')
-const axios = require("axios")
 const router = express.Router()
 const {
   registerUser,

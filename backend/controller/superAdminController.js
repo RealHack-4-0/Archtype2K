@@ -4,6 +4,7 @@ const asyncHandler = require("express-async-handler");
 const healthPro = require("../models/healthProModel");
 
 const addHealthPro = asyncHandler(async (req, res) => {
+  console.log("'rrrr");
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
