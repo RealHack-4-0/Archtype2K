@@ -6,7 +6,6 @@ import Register from './components/Register';
 import Header from './components/Header';
 import Home from './components/Home';
 
-
 function App() {
   return (
     <>
@@ -14,7 +13,7 @@ function App() {
       <div className="App">
       <Header />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home />}></Route>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
           </Routes>

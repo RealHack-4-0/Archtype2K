@@ -128,5 +128,6 @@ module.exports = {
   addHealthPro,
   updateHealthPro,
   deleteHealthPro,
-  verifyHealthPro
+  verifyHealthPro,
+  loginHealthPro
 };
