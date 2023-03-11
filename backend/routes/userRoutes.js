@@ -19,4 +19,4 @@ router.get('/me', protect, getMe)
 // router.get('/', (req, res) => res.send('Hello World!')) 
 
 
-module.exports = router
+module.exports = routers
