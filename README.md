@@ -1,11 +1,29 @@
 # Archtype2K
 
-From the Root run the below commands </br> 
-`...Archtype2K> cd .\backend\` </br>
-`...Archtype2K\backend> npm install` </br>
-`...Archtype2K\backend> cd ..` </br>
-`...Archtype2K> cd .\frontend\` </br>
-`...Archtype2K\frontend> npm install` </br>
-`...Archtype2K\frontend> cd ..` </br>
-`...Archtype2K> npm i concurrently` </br>
-`...Archtype2K> npm start` </br>
+## Technology Stack
+
+The hospital management system was implemented using the MERN stack, which includes:
+
+- MongoDB
+- Express.js
+- React
+- Node.js
+
+##  Setup Instructions
+From the Root run the below commands  
+
+```cd .\backend\```  
+
+```npm install```  
+
+```cd ..```  
+
+```cd .\frontend\```  
+
+```npm install```  
+
+```cd ..```  
+
+```npm i concurrently```  
+
+```npm start```  
