@@ -2,10 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
-
-import AdminPortal from './portals/AdminPortal/AdminPortal'
 import PatientRoutes from './portals/PatientPortal'
 import AdminRoutes from './portals/AdminPortal'
+import HomePage from './home/HomePage'
 
 function Home() {
 
@@ -39,6 +38,8 @@ function Home() {
         <div><pre> user role  - {user.role}</pre></div>
       </>) : (<></>)} */}
       {user ? renderPortals(user.role) : <></>}
+      <HomePage/>
+      
     </>
   )
 }
