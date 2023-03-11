@@ -2,24 +2,25 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
+import HomePage from './home/HomePage'
+
 import AdminPortal from './portals/AdminPortal'
-import EventManagerPortal from './portals/EventManagerPortal'
-import ShelterManagerPortal from './portals/ShelterManagerPortal'
+import PatientPortal from './portals/PatientPortal'
 
 function Home() {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {user} = useSelector(state => state.auth)
-  
+  const { user } = useSelector(state => state.auth)
+
   const renderPortals = (param) => {
-    switch(param) {
+    switch (param) {
       case 'ADMIN':
         return <AdminPortal />;
-      case 'EVENT_MANAGER':
-        return <EventManagerPortal />;
-      case 'SHELTER_MANAGER':
-        return <ShelterManagerPortal />;
+      case 'patient':
+        return <PatientPortal />;
+      // case 'SHELTER_MANAGER':
+        // return <ShelterManagerPortal />;
       default:
         return <></>;
     }
@@ -27,16 +28,17 @@ function Home() {
 
   return (
     <>
-    Home
-    <br/>
-     {user ? (<>    <div><pre> user id    - {user._id}</pre> </div>
-    <div><pre> user name  - {user.name}</pre></div>
-    <div><pre> user email - {user.email}</pre></div>
-    <div><pre> user token - </pre> {user.token}</div>
-    <div><pre> user role  - {user.role}</pre></div>
-    </>):(<>please login</>)}
+      <br />
+      {/* {user ? (<>    <div><pre> user id    - {user._id}</pre> </div>
+        <div><pre> user name  - {user.name}</pre></div>
+        <div><pre> user email - {user.email}</pre></div>
+        <div><pre> user token - </pre> {user.token}</div>
+        <div><pre> user role  - {user.role}</pre></div>
+      </>) : (<></>)} */}
 
-    { user ? renderPortals(user.role) : <></>}
+      <HomePage/>
+
+      {user ? renderPortals(user.role) : <></>}
     </>
   )
 }
