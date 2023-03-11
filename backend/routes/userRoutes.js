@@ -16,7 +16,6 @@ router.post('/',registerUser)
 router.post('/login', loginUser)
 router.post('/update',protect, updateUser)
 router.get('/me', protect, getMe)
-// router.get('/', (req, res) => res.send('Hello World!')) 
 
 
 module.exports = router
