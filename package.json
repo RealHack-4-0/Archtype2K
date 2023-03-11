@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "concurrently \"cd frontend yarn install\" && \"cd backend yarn install\"",
-    "start": "concurrently \"yarn run startfront\" \"yarn run startback\"",
-    "startfront" : "concurrently \"cd frontend && yarn start\" \"echo frontend running\" ",
-    "startback" : "concurrently \"cd backend && yarn run server\" \"echo backend running\" "
+    "install": "concurrently \"cd frontend npm install\" && \"cd backend npm install\"",
+    "start": "concurrently \"npm run startfront\" \"npm run startback\"",
+    "startfront" : "concurrently \"cd frontend && npm start\" \"echo frontend running\" ",
+    "startback" : "concurrently \"cd backend && npm run server\" \"echo backend running\" "
   },
   "repository": {
     "type": "git",
