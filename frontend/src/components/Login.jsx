@@ -25,10 +25,14 @@ const Login = () => {
         }
     
         if (isSuccess || user) {
-          if(user.role === 'admin') {
+          if(user.role === 'super_admin') {
             navigate('/admin')
-          } else {
+          } else if(user.role === 'patient') {
             navigate('/patient')
+          } else if(user.role === 'physicians') {
+            navigate('/doctor')
+          } else{
+            navigate('/login')
           }
         }
     

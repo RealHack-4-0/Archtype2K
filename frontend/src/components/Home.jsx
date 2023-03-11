@@ -23,6 +23,7 @@ function Home() {
       case 'doctor':
         return <DoctorRoutes/>;
       default:
+        console.log('no role');
         return <></>;
     }
   }
