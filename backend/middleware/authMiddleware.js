@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
+const healthPro = require('../models/healthProModel')
 
 const protect = asyncHandler(async (req, res, next) => {
   let token
@@ -19,8 +20,9 @@ const protect = asyncHandler(async (req, res, next) => {
       // Get user from the token
       req.user = await User.findOne({_id:decoded.id }).select('-password')
 
-      if(req.user == null)
-        throw new Error
+      if(req.user == null){
+        req.user = await healthPro.findOne({_id:decoded.id }).select('-password')
+      }
 
       next()
     } catch (error) {
@@ -55,7 +57,7 @@ const healthProProtect = asyncHandler(async (req, res, next) => {
 })
 
 const superAdminProtect = asyncHandler(async (req, res, next) => {
-
+  console.log(req.user)
   if(req.user.role){
   if (req.user.role == 'super_admin') {
     next()
