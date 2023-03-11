@@ -1,20 +1,22 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
 import CommonHeader from '../Common/CommonHeader';
+import Home from './Components/Home';
+import Appointments from './Components/Appointments';
+import MakeAppointment from './Components/MakeAppointment';
+import MyReports from './Components/MyReports';
+import MyProfile from './Components/MyProfile';
 
 const PatientRoutes = () => {
   return (
     <div>
         <CommonHeader />  
-        <h1>Patient Route</h1>
         <Routes>
-            <Route path="" element={<div>Home</div>} />
-            <Route path="profile" element={<div>Profile</div>} />
-            <Route path="appointments" element={<div>Appointments</div>} />
-            <Route path="prescriptions" element={<div>Prescriptions</div>} />
-            <Route path="reports" element={<div>Reports</div>} />
-            <Route path="payments" element={<div>Payments</div>} />
-            <Route path="medicalhistory" element={<div>Medical History</div>} />
+            <Route path="" element={<Home/>} />
+            <Route path="appointments" element={<Appointments/>} />
+            <Route path="make-appointment" element={<MakeAppointment/>} />
+            <Route path="reports" element={<MyReports/>} />
+            <Route path="profile" element={<MyProfile/>} />
         </Routes>
     </div>
   )
