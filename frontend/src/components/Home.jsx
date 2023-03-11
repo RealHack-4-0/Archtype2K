@@ -14,6 +14,7 @@ function Home() {
   const { user } = useSelector(state => state.auth)
 
   const renderPortals = (param) => {
+    console.log(param);
     switch (param) {
       case 'super_admin':
         return <AdminRoutes />;
