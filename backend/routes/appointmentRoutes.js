@@ -3,8 +3,8 @@ const router = express.Router()
 const {
     createAppointment,
     getAppointment,
-    getAllAppointment
-
+    getAllAppointment,
+    deleteAppointment
 } = require('../controller/appointmentController')
 
 const { protect ,  patientProtect , healthProProtect , superAdminProtect} = require('../middleware/authMiddleware')

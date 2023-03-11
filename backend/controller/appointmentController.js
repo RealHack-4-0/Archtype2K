@@ -48,6 +48,25 @@ const getAllAppointment = asyncHandler (async (req, res) => {
   res.json(appointment);
 })
 
+const deleteAppointment = asyncHandler (async (req, res) => {
+  const { date, time, patienid } = req.body
+
+  if ( !date || !time || !patienid) {
+    res.status(400)
+    throw new Error('Please add all fields')
+  }
+
+  const Appointment = await Appointment.findOne({ email })
+  
+  if (Appointment) {
+    res.status(200)
+  }
+  else {
+    res.status(400)
+    throw new Error('delete failed')
+  }
+})
+
 module.exports = {
     createAppointment,
     getAppointment,
