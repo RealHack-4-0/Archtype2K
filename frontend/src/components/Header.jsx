@@ -56,7 +56,7 @@ function Header() {
             <li>
               <Link
                 to="/"
-                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-gray-400"
                 aria-current="page"
               >
                 Home
@@ -96,7 +96,7 @@ function Header() {
             </li>
             {user ? (
               <li>
-                <button className='btn' onClick={onLogout}>
+                <button className='btn dark:text-gray-400 hover:text-white' onClick={onLogout}>
                   <FaSignOutAlt /> Logout
                 </button>
               </li>) : null}
