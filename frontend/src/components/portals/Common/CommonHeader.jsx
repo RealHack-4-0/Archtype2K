@@ -1,34 +1,29 @@
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
+// Make appointment
+// See patient records
+
 const patientHeaderItems = [
     {
         name: 'Home',
         path: '/patient',
     },
     {
-        name: 'My Profile',
-        path: '/patient/profile',
-    },
-    {
         name: 'My Appointments',
         path: '/patient/appointments',
     },
     {
-        name: 'My Prescriptions',
-        path: '/patient/prescriptions',
+        name: 'Make Appointment',
+        path: '/patient/make-appointment',
     },
     {
         name: 'My Reports',
         path: '/patient/reports',
     },
     {
-        name: 'My Payments',
-        path: '/patient/payments',
-    },
-    {
-        name: 'My Medical History',
-        path: '/patient/medicalhistory',
+        name: 'My Profile',
+        path: '/patient/profile',
     },
 ];
 
@@ -66,11 +61,6 @@ const CommonHeader = () => {
                     </Menu.Item>
                 );
             })}
-            {userRole.role === 'patient' && (
-                <Menu.Item key="new-reports" className="nav-pill">
-                    <Link to="/patient/reports">New</Link>
-                </Menu.Item>
-            )}
         </Menu>
     );
 };
