@@ -12,10 +12,12 @@ const {
 
 const {
     addHealthPro,
+    loginHealthPro,
     updateHealthPro,
     deleteHealthPro,
-
+    verifyHealthPro
 } = require('../controller/superAdminController')
+
 const { protect ,  patientProtect , healthProProtect , superAdminProtect} = require('../middleware/authMiddleware')
 
 
@@ -24,8 +26,10 @@ router.post('/login', loginUser)
 router.post('/update',protect, updateUser)
 router.get('/me', protect, getMe)
 
-router.post('/healthpro', addHealthPro)
-router.post('/healthpro', addHealthPro)
+router.post('/healthpro', superAdminProtect , addHealthPro)
+router.post('/update',healthProProtect, updateUser)
+router.post('/verify', healthProProtect , addHealthPro)
+
 
 
 module.exports = router

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel");
+const healthPro = require("../models/healthProModel");
 
 const addHealthPro = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -12,7 +12,7 @@ const addHealthPro = asyncHandler(async (req, res) => {
   }
 
   // Check if user exists
-  const userExists = await User.findOne({ email });
+  const userExists = await healthPro.findOne({ email });
 
   if (userExists) {
     res.status(400);
@@ -24,7 +24,7 @@ const addHealthPro = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   // Create user
-  const user = await User.create({
+  const user = await healthPro.create({
     name,
     email,
     password: hashedPassword,
@@ -44,8 +44,22 @@ const addHealthPro = asyncHandler(async (req, res) => {
   }
 });
 
+const verifyHealthPro = asyncHandler(async (req, res) => {
+    const userId = req.body._id;
+    const updatedUser = await healthPro.findOneAndUpdate(
+      { _id: userId },
+      { verified: true },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(updatedUser);
+  });
+  
+
 const updateHealthPro = asyncHandler(async (req, res) => {
-  const user = await User.findOne({ _id: req.body._id });
+  const user = await healthPro.findOne({ _id: req.body._id });
 
   if (user) {
     user.name = req.body.name || user.name;
@@ -72,7 +86,7 @@ const deleteHealthPro = asyncHandler(async (req, res) => {
     throw new Error("Please add all fields");
   }
 
-  const user = await User.findOne({ email });
+  const user = await healthPro.findOne({ email });
 
   if (user && (await bcrypt.compare(password, user.password))) {
     const deletedUser = await user.delete();
@@ -90,8 +104,29 @@ const deleteHealthPro = asyncHandler(async (req, res) => {
   }
 });
 
+const loginHealthPro = asyncHandler(async (req, res) => {
+    const { email, password } = req.body
+
+  // Check for user email
+  const user = await healthPro.findOne({ email })
+  
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+      role: user.role,
+    })
+  } else {
+    res.status(400)
+    throw new Error('Invalid credentials')
+  }
+});
+
 module.exports = {
   addHealthPro,
   updateHealthPro,
   deleteHealthPro,
+  verifyHealthPro
 };
