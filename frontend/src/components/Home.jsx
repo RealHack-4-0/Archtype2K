@@ -2,10 +2,10 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
-import HomePage from './home/HomePage'
 
-import AdminPortal from './portals/AdminPortal'
-import PatientPortal from './portals/PatientPortal'
+import AdminPortal from './portals/AdminPortal/AdminPortal'
+import PatientRoutes from './portals/PatientPortal'
+import AdminRoutes from './portals/AdminPortal'
 
 function Home() {
 
@@ -14,11 +14,14 @@ function Home() {
   const { user } = useSelector(state => state.auth)
 
   const renderPortals = (param) => {
+    console.log('param: ', param)
     switch (param) {
-      case 'ADMIN':
-        return <AdminPortal />;
+      case 'admin':
+        console.log("Admin Portal");
+        return <AdminRoutes />;
       case 'patient':
-        return <PatientPortal />;
+        console.log("Patient Portal");
+        return <PatientRoutes />;
       // case 'SHELTER_MANAGER':
         // return <ShelterManagerPortal />;
       default:
@@ -35,9 +38,6 @@ function Home() {
         <div><pre> user token - </pre> {user.token}</div>
         <div><pre> user role  - {user.role}</pre></div>
       </>) : (<></>)} */}
-
-      <HomePage/>
-
       {user ? renderPortals(user.role) : <></>}
     </>
   )

@@ -25,7 +25,11 @@ const Login = () => {
         }
     
         if (isSuccess || user) {
-          navigate('/')
+          if(user.role === 'admin') {
+            navigate('/admin')
+          } else {
+            navigate('/patient')
+          }
         }
     
         dispatch(reset())
