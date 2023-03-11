@@ -5,6 +5,7 @@ import { logout, reset } from '../features/auth/authSlice'
 import PatientRoutes from './portals/PatientPortal'
 import AdminRoutes from './portals/AdminPortal'
 import HomePage from './home/HomePage'
+import DoctorRoutes from './portals/DoctorPortal'
 
 function Home() {
 
@@ -13,16 +14,13 @@ function Home() {
   const { user } = useSelector(state => state.auth)
 
   const renderPortals = (param) => {
-    console.log('param: ', param)
     switch (param) {
       case 'admin':
-        console.log("Admin Portal");
         return <AdminRoutes />;
       case 'patient':
-        console.log("Patient Portal");
         return <PatientRoutes />;
-      // case 'SHELTER_MANAGER':
-        // return <ShelterManagerPortal />;
+      case 'doctor':
+        return <DoctorRoutes/>;
       default:
         return <></>;
     }

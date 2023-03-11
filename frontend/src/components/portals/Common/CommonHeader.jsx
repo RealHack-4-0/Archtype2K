@@ -46,11 +46,39 @@ const adminHeaderItems = [
     },
 ];
 
+const doctorHeaderItems = [
+    {
+        name: 'Home',
+        path: '/doctor',
+    },
+    {
+        name: 'Appointments',
+        path: '/doctor/appointments',
+    },
+    {
+        name: 'My Profile',
+        path: '/doctor/profile',
+    },
+];
+
+
 const CommonHeader = () => {
     const userRole = JSON.parse(localStorage.getItem('user'));
-    const loopItems = userRole.role === 'patient' ? patientHeaderItems : adminHeaderItems;
-
-    console.log('common header from : ' + userRole.role);
+    let loopItems = "";
+    
+    switch(userRole.role){
+        case 'doctor':
+            loopItems = doctorHeaderItems;
+            break;
+        case 'admin':
+            loopItems = adminHeaderItems;
+            break;
+        case 'patient':
+            loopItems = patientHeaderItems;
+            break;
+        default:
+            loopItems = "";
+    }
 
     return (
         <Menu mode="horizontal" theme="dark">
