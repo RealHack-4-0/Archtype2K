@@ -1,6 +1,7 @@
 const Appointment = require('../models/appointment');
+const asyncHandler = require("express-async-handler");
 
-const createAppointment = async (req, res) => {
+const createAppointment = asyncHandler(async (req, res) => {
   const { date, time, patienid } = req.body;
 
   const appointment = await Appointment.find({ date, time })
@@ -32,34 +33,24 @@ const createAppointment = async (req, res) => {
   
     res.status(201).json(appointment);
   
-
   }
 
+});
 
-  // // Check if there are less than 10 appointments in the past hour
-  // const hourAgo = new Date(Date.now() - 60 * 60 * 1000);
-  // const count = await Appointment.countDocuments({
-  //   date: { $gte: hourAgo },
-  // });
-  // if (count >= 10) {
-  //   throw new Error('Maximum number of appointments reached for the hour');
-  // }
+const getAppointment = asyncHandler (async (req, res) => {
+  const { date, time, patienid } = req.body;
+  const appointment = await Appointment.find({ date, time })
+  res.json(appointment);
+})
 
-  // // Create the appointment record
-  // const appointment = new Appointment({
-  //   date,
-  //   time,
-  //   patienid,
-  // });
-
-  // // Save the appointment to the database
-  // await appointment.save();
-
-  // res.status(201).json(appointment);
-
-
-};
+const getAllAppointment = asyncHandler (async (req, res) => {
+  const appointment = await Appointment.find();
+  res.json(appointment);
+})
 
 module.exports = {
-    createAppointment
+    createAppointment,
+    getAppointment,
+    getAllAppointment
+
   };
