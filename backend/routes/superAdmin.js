@@ -16,7 +16,7 @@ const {
 const { protect ,  patientProtect , healthProProtect , superAdminProtect} = require('../middleware/authMiddleware')
 
 
-router.post('/', superAdminProtect , addHealthPro)
+router.post('/', protect , superAdminProtect , addHealthPro)
 router.post('/login', loginHealthPro)
 router.post('/update',healthProProtect, updateHealthPro)
 router.post('/verify', healthProProtect , verifyHealthPro)

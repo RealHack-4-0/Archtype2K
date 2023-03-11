@@ -28,6 +28,7 @@ const addHealthPro = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword,
+    role: req.body.role,
   });
 
   if (user) {
@@ -123,6 +124,12 @@ const loginHealthPro = asyncHandler(async (req, res) => {
     throw new Error('Invalid credentials')
   }
 });
+
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: '30d',
+  })
+}
 
 module.exports = {
   addHealthPro,

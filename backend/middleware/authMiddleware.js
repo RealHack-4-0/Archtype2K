@@ -55,11 +55,16 @@ const healthProProtect = asyncHandler(async (req, res, next) => {
 })
 
 const superAdminProtect = asyncHandler(async (req, res, next) => {
+
+  if(req.user.role){
   if (req.user.role == 'super_admin') {
     next()
   } else {
     res.status(401)
     throw new Error('Not authorized, not a super_admin')
+  }}else{
+    res.status(401)
+    throw new Error('no role found')
   }
 })
 
