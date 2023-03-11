@@ -6,13 +6,18 @@ const appointmentSchema = mongoose.Schema(
         type: String,
         required: [false, 'Please add a date'],
     },
-    time: {
-        type: String,
-        required: [false, 'Please add a time'],
-    },
     patientid: {
         type: String,
         required: [false, 'Please add a patientid'],
+    },
+    time: {
+      type: String,
+      required: [false, 'Please add a time'],
+    },
+    counter:{
+        type: Number,
+        required: [false, 'Please add a counter'],
+        default: 0
     }
   },
   {
