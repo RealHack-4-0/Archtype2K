@@ -25,6 +25,10 @@ jobs:
         npm install
         cd ../backend
         npm install
+        
+    - name: Check app
+      run: npm start
+      timeout-minutes: 5
 
 #     - name: Build and Test Frontend
 #       run: |
