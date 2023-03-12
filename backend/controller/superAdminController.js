@@ -108,8 +108,8 @@ const deleteHealthPro = asyncHandler(async (req, res) => {
 
 const loginHealthPro = asyncHandler(async (req, res) => {
 
-
     const { email, password } = req.body
+    console.log(req.body)
  
   // Check for user email
   const user = await healthPro.findOne({ email })
