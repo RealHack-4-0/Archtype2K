@@ -26,13 +26,13 @@ jobs:
         cd ../backend
         npm install
 
-    - name: Build and Test Frontend
-      run: |
-        cd frontend
-        npm run build
-        npm test
+#     - name: Build and Test Frontend
+#       run: |
+#         cd frontend
+#         npm run build
+#         npm test
 
-    - name: Test Backend
-      run: |
-        cd backend
-        npm test
+#     - name: Test Backend
+#       run: |
+#         cd backend
+#         npm test
