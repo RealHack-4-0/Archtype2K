@@ -48,7 +48,7 @@ const patientProtect = asyncHandler(async (req, res, next) => {
 })
 
 const healthProProtect = asyncHandler(async (req, res, next) => {
-  if (req.user.role == 'health_pro') {
+  if (req.user.role == 'health_pro' || req.user.role == 'super_admin') {
     next()
   } else {
     res.status(401)

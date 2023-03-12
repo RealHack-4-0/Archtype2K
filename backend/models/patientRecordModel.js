@@ -13,7 +13,6 @@ const patientRecord = mongoose.Schema(
     prescriptions: {
       type: String,
       required: [true, "Please add a prescriptions"],
-      unique: true,
     },
     treatment_plans: {
       type: String,

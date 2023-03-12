@@ -4,7 +4,6 @@ const {
     createAppointment,
     getAppointment,
     getAllAppointment,
-    deleteAppointment
 } = require('../controller/appointmentController')
 
 const { protect ,  patientProtect , healthProProtect , superAdminProtect} = require('../middleware/authMiddleware')

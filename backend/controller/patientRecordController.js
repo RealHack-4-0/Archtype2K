@@ -39,7 +39,7 @@ const viewPatientRecordPatient = asyncHandler(async (req, res) => {
 
 const viewPatientRecordDoctor = asyncHandler(async (req, res) => {
   const { doc_id } = req.body;
-
+  console.log(doc_id);
   // Check for user email
   const patientRecord = await PatientRecord.findOne({  doc_id });
 
